@@ -10,14 +10,19 @@ using System.Windows.Forms;
 
 namespace Library
 {
-    public partial class admindashboard : Form
+    public partial class AdminBookmanagement : Form
     {
-        public admindashboard()
+        public AdminBookmanagement()
         {
             InitializeComponent();
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
         {
 
         }
@@ -27,22 +32,7 @@ namespace Library
 
         }
 
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void panel7_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void admindashboard_Load(object sender, EventArgs e)
         {
 
         }
