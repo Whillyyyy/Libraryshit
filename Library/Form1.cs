@@ -28,5 +28,12 @@ namespace Library
             userlogin.Show();
             this.Hide();
         }
+
+        private void Adminloginbtn_Click(object sender, EventArgs e)
+        {
+            admindashboard admindashboard = new admindashboard();
+            admindashboard.Show();
+            this.Hide();
+        }
     }
 }
