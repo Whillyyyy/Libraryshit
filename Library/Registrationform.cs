@@ -11,7 +11,9 @@ using MySql.Data.MySqlClient;
 
 namespace Library
 {
-    MySqlConnection connection = new MySqlConnection("datasource=locahost;port=3306;username=root;password=");
+    MySqlConnection connection = new MySqlConnection("datasource=localhost;port=3306;username=root;password=");
+    MySqlCommand command;
+    MySqlDataReader mdr;
     public partial class Registrationform : Form
     {
         public Registrationform()
@@ -38,7 +40,43 @@ namespace Library
 
         private void passregtxt_TextChanged(object sender, EventArgs e)
         {
-            register_password.PasswordChar = register_showPass.Cli
+           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(register_password.PasswordChar == '*')
+            {
+                hide_btn.BringToFront();
+                register_password.PasswordChar = '\0';
+            }
+        }
+
+        private void show_btn_Click(object sender, EventArgs e)
+        {
+            if (register_password.PasswordChar == '\0')
+            {
+                show_btn.BringToFront();
+                register_password.PasswordChar = '*';
+            }
+        }
+
+        private void hide_btn2_Click(object sender, EventArgs e)
+        {
+            if (conpassregtxt.PasswordChar == '*')
+            {
+                hide_btn2.BringToFront();
+                register_password.PasswordChar = '\0';
+            }
+        }
+
+        private void show_btn2_Click(object sender, EventArgs e)
+        {
+            if (conpassregtxt.PasswordChar == '\0')
+            {
+                show_btn2.BringToFront();
+                register_password.PasswordChar = '*';
+            }
         }
     }
 }

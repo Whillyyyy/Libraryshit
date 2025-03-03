@@ -32,9 +32,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.checkboxtxt = new System.Windows.Forms.CheckBox();
-            this.register_showPass2 = new System.Windows.Forms.PictureBox();
-            this.register_showPass = new System.Windows.Forms.PictureBox();
-            this.conpassregtxt = new System.Windows.Forms.TextBox();
             this.register_password = new System.Windows.Forms.TextBox();
             this.studentnumtxt = new System.Windows.Forms.TextBox();
             this.emailaddtxt = new System.Windows.Forms.TextBox();
@@ -44,10 +41,13 @@
             this.register_btn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.conpassregtxt = new System.Windows.Forms.TextBox();
+            this.hide_btn = new System.Windows.Forms.Button();
+            this.show_btn = new System.Windows.Forms.Button();
+            this.show_btn2 = new System.Windows.Forms.Button();
+            this.hide_btn2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.register_showPass2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.register_showPass)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -56,16 +56,18 @@
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(-1, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1392, 1102);
             this.panel1.TabIndex = 1;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.hide_btn2);
+            this.panel2.Controls.Add(this.show_btn2);
+            this.panel2.Controls.Add(this.show_btn);
+            this.panel2.Controls.Add(this.hide_btn);
             this.panel2.Controls.Add(this.checkboxtxt);
-            this.panel2.Controls.Add(this.register_showPass2);
-            this.panel2.Controls.Add(this.register_showPass);
             this.panel2.Controls.Add(this.conpassregtxt);
             this.panel2.Controls.Add(this.register_password);
             this.panel2.Controls.Add(this.studentnumtxt);
@@ -77,7 +79,7 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(391, 282);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(611, 539);
             this.panel2.TabIndex = 1;
@@ -88,63 +90,30 @@
             this.checkboxtxt.AutoSize = true;
             this.checkboxtxt.Font = new System.Drawing.Font("Poppins Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkboxtxt.Location = new System.Drawing.Point(108, 393);
-            this.checkboxtxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkboxtxt.Margin = new System.Windows.Forms.Padding(4);
             this.checkboxtxt.Name = "checkboxtxt";
             this.checkboxtxt.Size = new System.Drawing.Size(212, 29);
             this.checkboxtxt.TabIndex = 23;
             this.checkboxtxt.Text = "Accept Terms & Conditions";
             this.checkboxtxt.UseVisualStyleBackColor = true;
             // 
-            // register_showPass2
-            // 
-            this.register_showPass2.Image = ((System.Drawing.Image)(resources.GetObject("register_showPass2.Image")));
-            this.register_showPass2.Location = new System.Drawing.Point(471, 353);
-            this.register_showPass2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.register_showPass2.Name = "register_showPass2";
-            this.register_showPass2.Size = new System.Drawing.Size(27, 27);
-            this.register_showPass2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.register_showPass2.TabIndex = 21;
-            this.register_showPass2.TabStop = false;
-            // 
-            // register_showPass
-            // 
-            this.register_showPass.Image = ((System.Drawing.Image)(resources.GetObject("register_showPass.Image")));
-            this.register_showPass.Location = new System.Drawing.Point(471, 297);
-            this.register_showPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.register_showPass.Name = "register_showPass";
-            this.register_showPass.Size = new System.Drawing.Size(27, 27);
-            this.register_showPass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.register_showPass.TabIndex = 20;
-            this.register_showPass.TabStop = false;
-            // 
-            // conpassregtxt
-            // 
-            this.conpassregtxt.Font = new System.Drawing.Font("Poppins Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.conpassregtxt.Location = new System.Drawing.Point(108, 342);
-            this.conpassregtxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.conpassregtxt.Multiline = true;
-            this.conpassregtxt.Name = "conpassregtxt";
-            this.conpassregtxt.Size = new System.Drawing.Size(407, 48);
-            this.conpassregtxt.TabIndex = 19;
-            this.conpassregtxt.Text = "Confirm Password";
-            // 
             // register_password
             // 
             this.register_password.Font = new System.Drawing.Font("Poppins Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.register_password.Location = new System.Drawing.Point(108, 286);
-            this.register_password.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.register_password.Margin = new System.Windows.Forms.Padding(4);
             this.register_password.Multiline = true;
             this.register_password.Name = "register_password";
+            this.register_password.PasswordChar = '*';
             this.register_password.Size = new System.Drawing.Size(407, 48);
             this.register_password.TabIndex = 18;
-            this.register_password.Text = "Password";
             this.register_password.TextChanged += new System.EventHandler(this.passregtxt_TextChanged);
             // 
             // studentnumtxt
             // 
             this.studentnumtxt.Font = new System.Drawing.Font("Poppins Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.studentnumtxt.Location = new System.Drawing.Point(108, 229);
-            this.studentnumtxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.studentnumtxt.Margin = new System.Windows.Forms.Padding(4);
             this.studentnumtxt.Multiline = true;
             this.studentnumtxt.Name = "studentnumtxt";
             this.studentnumtxt.Size = new System.Drawing.Size(407, 48);
@@ -155,7 +124,7 @@
             // 
             this.emailaddtxt.Font = new System.Drawing.Font("Poppins Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailaddtxt.Location = new System.Drawing.Point(108, 172);
-            this.emailaddtxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.emailaddtxt.Margin = new System.Windows.Forms.Padding(4);
             this.emailaddtxt.Multiline = true;
             this.emailaddtxt.Name = "emailaddtxt";
             this.emailaddtxt.Size = new System.Drawing.Size(407, 48);
@@ -166,7 +135,7 @@
             // 
             this.lastnametxt.Font = new System.Drawing.Font("Poppins Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lastnametxt.Location = new System.Drawing.Point(321, 122);
-            this.lastnametxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lastnametxt.Margin = new System.Windows.Forms.Padding(4);
             this.lastnametxt.Multiline = true;
             this.lastnametxt.Name = "lastnametxt";
             this.lastnametxt.Size = new System.Drawing.Size(193, 42);
@@ -177,7 +146,7 @@
             // 
             this.firstnametxt.Font = new System.Drawing.Font("Poppins Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.firstnametxt.Location = new System.Drawing.Point(108, 122);
-            this.firstnametxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firstnametxt.Margin = new System.Windows.Forms.Padding(4);
             this.firstnametxt.Multiline = true;
             this.firstnametxt.Name = "firstnametxt";
             this.firstnametxt.Size = new System.Drawing.Size(204, 42);
@@ -203,7 +172,7 @@
             this.register_btn.Font = new System.Drawing.Font("Poppins Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.register_btn.ForeColor = System.Drawing.Color.White;
             this.register_btn.Location = new System.Drawing.Point(189, 437);
-            this.register_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.register_btn.Margin = new System.Windows.Forms.Padding(4);
             this.register_btn.Name = "register_btn";
             this.register_btn.Size = new System.Drawing.Size(255, 47);
             this.register_btn.TabIndex = 4;
@@ -233,20 +202,77 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Library Management System";
             // 
+            // conpassregtxt
+            // 
+            this.conpassregtxt.Font = new System.Drawing.Font("Poppins Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.conpassregtxt.Location = new System.Drawing.Point(108, 342);
+            this.conpassregtxt.Margin = new System.Windows.Forms.Padding(4);
+            this.conpassregtxt.Multiline = true;
+            this.conpassregtxt.Name = "conpassregtxt";
+            this.conpassregtxt.PasswordChar = '*';
+            this.conpassregtxt.Size = new System.Drawing.Size(407, 48);
+            this.conpassregtxt.TabIndex = 19;
+            // 
+            // hide_btn
+            // 
+            this.hide_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hide_btn.Image = ((System.Drawing.Image)(resources.GetObject("hide_btn.Image")));
+            this.hide_btn.Location = new System.Drawing.Point(473, 296);
+            this.hide_btn.Name = "hide_btn";
+            this.hide_btn.Size = new System.Drawing.Size(30, 23);
+            this.hide_btn.TabIndex = 24;
+            this.hide_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.hide_btn.UseVisualStyleBackColor = true;
+            this.hide_btn.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // show_btn
+            // 
+            this.show_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.show_btn.Image = ((System.Drawing.Image)(resources.GetObject("show_btn.Image")));
+            this.show_btn.Location = new System.Drawing.Point(473, 296);
+            this.show_btn.Name = "show_btn";
+            this.show_btn.Size = new System.Drawing.Size(30, 23);
+            this.show_btn.TabIndex = 25;
+            this.show_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.show_btn.UseVisualStyleBackColor = true;
+            this.show_btn.Click += new System.EventHandler(this.show_btn_Click);
+            // 
+            // show_btn2
+            // 
+            this.show_btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.show_btn2.Image = ((System.Drawing.Image)(resources.GetObject("show_btn2.Image")));
+            this.show_btn2.Location = new System.Drawing.Point(473, 352);
+            this.show_btn2.Name = "show_btn2";
+            this.show_btn2.Size = new System.Drawing.Size(30, 23);
+            this.show_btn2.TabIndex = 26;
+            this.show_btn2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.show_btn2.UseVisualStyleBackColor = true;
+            this.show_btn2.Click += new System.EventHandler(this.show_btn2_Click);
+            // 
+            // hide_btn2
+            // 
+            this.hide_btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hide_btn2.Image = ((System.Drawing.Image)(resources.GetObject("hide_btn2.Image")));
+            this.hide_btn2.Location = new System.Drawing.Point(473, 352);
+            this.hide_btn2.Name = "hide_btn2";
+            this.hide_btn2.Size = new System.Drawing.Size(30, 23);
+            this.hide_btn2.TabIndex = 27;
+            this.hide_btn2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.hide_btn2.UseVisualStyleBackColor = true;
+            this.hide_btn2.Click += new System.EventHandler(this.hide_btn2_Click);
+            // 
             // Registrationform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1391, 1055);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Registrationform";
             this.Text = "Registrationform";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.register_showPass2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.register_showPass)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -263,10 +289,12 @@
         private System.Windows.Forms.Button register_btn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox conpassregtxt;
         private System.Windows.Forms.TextBox register_password;
-        private System.Windows.Forms.PictureBox register_showPass2;
-        private System.Windows.Forms.PictureBox register_showPass;
         private System.Windows.Forms.CheckBox checkboxtxt;
+        private System.Windows.Forms.Button hide_btn;
+        private System.Windows.Forms.TextBox conpassregtxt;
+        private System.Windows.Forms.Button show_btn;
+        private System.Windows.Forms.Button hide_btn2;
+        private System.Windows.Forms.Button show_btn2;
     }
 }
