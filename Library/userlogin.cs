@@ -13,12 +13,11 @@ using MySql.Data.MySqlClient;
 
 namespace Library
 {
-
-    MySqlConnection connection = new MySqlConnection("datasource=localhost;port=3306;username=root;password=");
-    MySqlCommand command;
-    MySqlDataReader mdr;
     public partial class userlogin : Form
     {
+        MySqlConnection connection = new MySqlConnection("datasource=localhost;port=3306;username=root;password=");
+        MySqlCommand command;
+        MySqlDataReader mdr;
         public userlogin()
         {
             InitializeComponent();

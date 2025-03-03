@@ -11,11 +11,12 @@ using MySql.Data.MySqlClient;
 
 namespace Library
 {
-    MySqlConnection connection = new MySqlConnection("datasource=localhost;port=3306;username=root;password=");
-    MySqlCommand command;
-    MySqlDataReader mdr;
+    
     public partial class Registrationform : Form
     {
+        MySqlConnection connection = new MySqlConnection("datasource=localhost;port=3306;username=root;password=");
+        MySqlCommand command;
+        MySqlDataReader mdr;
         public Registrationform()
         {
             InitializeComponent();
