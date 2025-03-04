@@ -62,8 +62,8 @@ namespace Library
             {
                 connection.Open();
 
-                MySqlCommand cmd1 = new MySqlCommand("SELECT * FROM `user_register` WHERE 1", connection),
-                cmd2 = new MySqlCommand("SELECT * FROM `user_register` WHERE 1", connection);
+                MySqlCommand cmd1 = new MySqlCommand("SELECT * FROM library.user_register WHERE student_num = @student_num", connection),
+                cmd2 = new MySqlCommand("SELECT * FROM library.user_register WHERE emailAdd = @emailAdd", connection);
 
 
                 cmd1.Parameters.AddWithValue("@student_num", studentnumtxt.Text);
@@ -92,6 +92,7 @@ namespace Library
                     catch (Exception ex)
                     {
                         // Show any error message.
+                        //123
                         MessageBox.Show(ex.Message);
                     }
 
