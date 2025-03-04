@@ -31,7 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registrationform));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.hide_btn2 = new System.Windows.Forms.Button();
+            this.show_btn2 = new System.Windows.Forms.Button();
+            this.show_btn = new System.Windows.Forms.Button();
+            this.hide_btn = new System.Windows.Forms.Button();
             this.checkboxtxt = new System.Windows.Forms.CheckBox();
+            this.conpassregtxt = new System.Windows.Forms.TextBox();
             this.register_password = new System.Windows.Forms.TextBox();
             this.studentnumtxt = new System.Windows.Forms.TextBox();
             this.emailaddtxt = new System.Windows.Forms.TextBox();
@@ -41,11 +46,6 @@
             this.register_btn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.conpassregtxt = new System.Windows.Forms.TextBox();
-            this.hide_btn = new System.Windows.Forms.Button();
-            this.show_btn = new System.Windows.Forms.Button();
-            this.show_btn2 = new System.Windows.Forms.Button();
-            this.hide_btn2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -78,12 +78,60 @@
             this.panel2.Controls.Add(this.register_btn);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(391, 282);
+            this.panel2.Location = new System.Drawing.Point(396, 218);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(611, 539);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // hide_btn2
+            // 
+            this.hide_btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hide_btn2.Image = ((System.Drawing.Image)(resources.GetObject("hide_btn2.Image")));
+            this.hide_btn2.Location = new System.Drawing.Point(473, 296);
+            this.hide_btn2.Name = "hide_btn2";
+            this.hide_btn2.Size = new System.Drawing.Size(30, 23);
+            this.hide_btn2.TabIndex = 27;
+            this.hide_btn2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.hide_btn2.UseVisualStyleBackColor = true;
+            this.hide_btn2.Click += new System.EventHandler(this.hide_btn2_Click);
+            // 
+            // show_btn2
+            // 
+            this.show_btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.show_btn2.Image = ((System.Drawing.Image)(resources.GetObject("show_btn2.Image")));
+            this.show_btn2.Location = new System.Drawing.Point(473, 352);
+            this.show_btn2.Name = "show_btn2";
+            this.show_btn2.Size = new System.Drawing.Size(30, 23);
+            this.show_btn2.TabIndex = 26;
+            this.show_btn2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.show_btn2.UseVisualStyleBackColor = true;
+            this.show_btn2.Click += new System.EventHandler(this.show_btn2_Click);
+            // 
+            // show_btn
+            // 
+            this.show_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.show_btn.Image = ((System.Drawing.Image)(resources.GetObject("show_btn.Image")));
+            this.show_btn.Location = new System.Drawing.Point(473, 296);
+            this.show_btn.Name = "show_btn";
+            this.show_btn.Size = new System.Drawing.Size(30, 23);
+            this.show_btn.TabIndex = 25;
+            this.show_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.show_btn.UseVisualStyleBackColor = true;
+            this.show_btn.Click += new System.EventHandler(this.show_btn_Click);
+            // 
+            // hide_btn
+            // 
+            this.hide_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hide_btn.Image = ((System.Drawing.Image)(resources.GetObject("hide_btn.Image")));
+            this.hide_btn.Location = new System.Drawing.Point(473, 352);
+            this.hide_btn.Name = "hide_btn";
+            this.hide_btn.Size = new System.Drawing.Size(30, 23);
+            this.hide_btn.TabIndex = 24;
+            this.hide_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.hide_btn.UseVisualStyleBackColor = true;
+            this.hide_btn.Click += new System.EventHandler(this.button1_Click);
             // 
             // checkboxtxt
             // 
@@ -96,6 +144,17 @@
             this.checkboxtxt.TabIndex = 23;
             this.checkboxtxt.Text = "Accept Terms & Conditions";
             this.checkboxtxt.UseVisualStyleBackColor = true;
+            // 
+            // conpassregtxt
+            // 
+            this.conpassregtxt.Font = new System.Drawing.Font("Poppins Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.conpassregtxt.Location = new System.Drawing.Point(108, 342);
+            this.conpassregtxt.Margin = new System.Windows.Forms.Padding(4);
+            this.conpassregtxt.Multiline = true;
+            this.conpassregtxt.Name = "conpassregtxt";
+            this.conpassregtxt.PasswordChar = '*';
+            this.conpassregtxt.Size = new System.Drawing.Size(407, 48);
+            this.conpassregtxt.TabIndex = 19;
             // 
             // register_password
             // 
@@ -201,65 +260,6 @@
             this.label1.Size = new System.Drawing.Size(404, 48);
             this.label1.TabIndex = 0;
             this.label1.Text = "Library Management System";
-            // 
-            // conpassregtxt
-            // 
-            this.conpassregtxt.Font = new System.Drawing.Font("Poppins Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.conpassregtxt.Location = new System.Drawing.Point(108, 342);
-            this.conpassregtxt.Margin = new System.Windows.Forms.Padding(4);
-            this.conpassregtxt.Multiline = true;
-            this.conpassregtxt.Name = "conpassregtxt";
-            this.conpassregtxt.PasswordChar = '*';
-            this.conpassregtxt.Size = new System.Drawing.Size(407, 48);
-            this.conpassregtxt.TabIndex = 19;
-            // 
-            // hide_btn
-            // 
-            this.hide_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.hide_btn.Image = ((System.Drawing.Image)(resources.GetObject("hide_btn.Image")));
-            this.hide_btn.Location = new System.Drawing.Point(473, 296);
-            this.hide_btn.Name = "hide_btn";
-            this.hide_btn.Size = new System.Drawing.Size(30, 23);
-            this.hide_btn.TabIndex = 24;
-            this.hide_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.hide_btn.UseVisualStyleBackColor = true;
-            this.hide_btn.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // show_btn
-            // 
-            this.show_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.show_btn.Image = ((System.Drawing.Image)(resources.GetObject("show_btn.Image")));
-            this.show_btn.Location = new System.Drawing.Point(473, 296);
-            this.show_btn.Name = "show_btn";
-            this.show_btn.Size = new System.Drawing.Size(30, 23);
-            this.show_btn.TabIndex = 25;
-            this.show_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.show_btn.UseVisualStyleBackColor = true;
-            this.show_btn.Click += new System.EventHandler(this.show_btn_Click);
-            // 
-            // show_btn2
-            // 
-            this.show_btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.show_btn2.Image = ((System.Drawing.Image)(resources.GetObject("show_btn2.Image")));
-            this.show_btn2.Location = new System.Drawing.Point(473, 352);
-            this.show_btn2.Name = "show_btn2";
-            this.show_btn2.Size = new System.Drawing.Size(30, 23);
-            this.show_btn2.TabIndex = 26;
-            this.show_btn2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.show_btn2.UseVisualStyleBackColor = true;
-            this.show_btn2.Click += new System.EventHandler(this.show_btn2_Click);
-            // 
-            // hide_btn2
-            // 
-            this.hide_btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.hide_btn2.Image = ((System.Drawing.Image)(resources.GetObject("hide_btn2.Image")));
-            this.hide_btn2.Location = new System.Drawing.Point(473, 352);
-            this.hide_btn2.Name = "hide_btn2";
-            this.hide_btn2.Size = new System.Drawing.Size(30, 23);
-            this.hide_btn2.TabIndex = 27;
-            this.hide_btn2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.hide_btn2.UseVisualStyleBackColor = true;
-            this.hide_btn2.Click += new System.EventHandler(this.hide_btn2_Click);
             // 
             // Registrationform
             // 

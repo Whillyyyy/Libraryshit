@@ -36,6 +36,71 @@ namespace Library
 
         private void Adminloginbtn_Click(object sender, EventArgs e)
         {
+            if (!this.emailaddtxt.Text.Contains('@') || !this.emailaddtxt.Text.Contains('.'))
+            {
+                MessageBox.Show("Please Enter A Valid Email", "Invalid Email", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (register_password.Text != register_password.Text)
+            {
+                MessageBox.Show("Password doesn't match!", "Error");
+                return;
+            }
+            if (conpassregtxt.Text != conpassregtxt.Text)
+            {
+                MessageBox.Show("Password doesn't match!", "Error");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(firstnametxt.Text) || string.IsNullOrEmpty(lastnametxt.Text) || string.IsNullOrEmpty(emailaddtxt.Text) || string.IsNullOrEmpty(studentnumtxt.Text) || string.IsNullOrEmpty(register_password.Text) || string.IsNullOrEmpty(conpassregtxt.Text))
+            {
+                MessageBox.Show("Please fill out all information!", "Error");
+                return;
+            }
+
+            else
+            {
+                connection.Open();
+
+                MySqlCommand cmd1 = new MySqlCommand("SELECT * FROM `user_register` WHERE 1", connection),
+                cmd2 = new MySqlCommand("SELECT * FROM `user_register` WHERE 1", connection);
+
+
+                cmd1.Parameters.AddWithValue("@student_num", studentnumtxt.Text);
+                cmd2.Parameters.AddWithValue("@emailAdd", emailaddtxt.Text);
+
+                bool userExists = false, mailExists = false;
+
+                using (var dr1 = cmd1.ExecuteReader())
+                    if (userExists = dr1.HasRows) MessageBox.Show("Student Number not available!");
+
+                using (var dr2 = cmd2.ExecuteReader())
+                    if (mailExists = dr2.HasRows) MessageBox.Show("Email not available!");
+
+
+                if (!(userExists || mailExists))
+                {
+
+                    string iquery = "INSERT INTO user_register.userinfo(`ID`,`firstName`,`lastName`,`student_num`,`emailAdd`,`passWord`, 'confirmPass') VALUES (NULL, '" + firstnametxt.Text + "', '" + lastnametxt.Text + "', '" + emailaddtxt.Text + "', '" + studentnumtxt.Text + "', '" + register_password.Text + "', '" + conpassregtxt.Text + "')";
+                    MySqlCommand commandDatabase = new MySqlCommand(iquery, connection);
+                    commandDatabase.CommandTimeout = 60;
+
+                    try
+                    {
+                        MySqlDataReader myReader = commandDatabase.ExecuteReader();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Show any error message.
+                        MessageBox.Show(ex.Message);
+                    }
+
+                    MessageBox.Show("Account Successfully Created!");
+
+                }
+
+                connection.Close();
+            }
 
         }
 
@@ -67,7 +132,7 @@ namespace Library
             if (conpassregtxt.PasswordChar == '*')
             {
                 hide_btn2.BringToFront();
-                register_password.PasswordChar = '\0';
+                conpassregtxt.PasswordChar = '\0';
             }
         }
 
@@ -76,7 +141,7 @@ namespace Library
             if (conpassregtxt.PasswordChar == '\0')
             {
                 show_btn2.BringToFront();
-                register_password.PasswordChar = '*';
+                conpassregtxt.PasswordChar = '*';
             }
         }
     }
