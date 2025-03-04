@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using MySql.Data.MySqlClient;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Library
 {
@@ -67,13 +68,13 @@ namespace Library
             else
             {
                 connection.Open();
-                string selectQuery = "SELECT * FROM loginform.userinfo WHERE Username = '" + studentnumtxt.Text + "' AND Password = '" + studentnumtxt.Text + "';";
-                command = new MySqlCommand(selectQuery, connection);
-                mdr = command.ExecuteReader();
+                string selectQuery = "SELECT * FROM user_register WHERE studentnum = '" + studentnumtxt.Text + "' AND password = '" + passstudentxt.Text + "';";
+                MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+                cmd.ExecuteNonQuery();
                 if (mdr.Read())
                 {
-                    string MyConnection2 = "datasource=localhost;port=3306;username=root;password=";
-                    string Query = "update loginform.userinfo set LastLogin='" + studentnumtxt.Text + "';";
+                    string MyConnection2 = "Server=127.0.0.1;Database=library;username=root;password=";
+                    string Query = "update user_register set LastLogin='" + studentnumtxt.Text + "';";
                     MySqlConnection MyConn2 = new MySqlConnection(MyConnection2);
 
                     MySqlCommand MyCommand2 = new MySqlCommand(Query, MyConn2);
@@ -87,8 +88,8 @@ namespace Library
 
                     MessageBox.Show("Login Successful!");
                     this.Hide();
-                    userdashboard userform = new userdashboard();
-                    userform.ShowDialog();
+                    
+
 
                 }
                 else

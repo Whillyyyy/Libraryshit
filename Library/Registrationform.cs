@@ -14,7 +14,7 @@ namespace Library
     
     public partial class Registrationform : Form
     {
-        MySqlConnection connection = new MySqlConnection("datasource=localhost;port=3306;username=root;password=");
+        MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=library;username=root;password=");
         MySqlCommand command;
         MySqlDataReader mdr;
         public Registrationform()
@@ -35,7 +35,15 @@ namespace Library
         }
 
         private void Adminloginbtn_Click(object sender, EventArgs e)
-        {
+        { string firstname = firstnametxt.Text;
+            string lastname = lastnametxt.Text;
+            string studentnum = studentnumtxt.Text;
+            string emailadd = emailaddtxt.Text;
+            string password = register_password.Text;
+            string confirmpass = conpassregtxt.Text;
+
+
+
             if (!this.emailaddtxt.Text.Contains('@') || !this.emailaddtxt.Text.Contains('.'))
             {
                 MessageBox.Show("Please Enter A Valid Email", "Invalid Email", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -57,54 +65,34 @@ namespace Library
                 MessageBox.Show("Please fill out all information!", "Error");
                 return;
             }
-
-            else
+            try
             {
                 connection.Open();
+                string query = "INSERT INTO `user_register`( `firstName`, `lastName`, `student_num`, `emailAdd`, `passWord`, `confirmPass`) VALUES (@firstname,@lastname,@studentnum,@emailadd,@password,@conpass)";
+                MySqlCommand cmd = new MySqlCommand(query,connection);
+                cmd.Parameters.AddWithValue("@firstname",firstname);
+                cmd.Parameters.AddWithValue("@lastname", lastname);
+                cmd.Parameters.AddWithValue("@studentnum", studentnum);
+                cmd.Parameters.AddWithValue("@emailadd", emailadd);
+                cmd.Parameters.AddWithValue("@password", password);
+                cmd.Parameters.AddWithValue("@conpass", confirmpass);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Registered Successfully");
 
-                MySqlCommand cmd1 = new MySqlCommand("SELECT * FROM library.user_register WHERE student_num = @student_num", connection),
-                cmd2 = new MySqlCommand("SELECT * FROM library.user_register WHERE emailAdd = @emailAdd", connection);
-
-
-                cmd1.Parameters.AddWithValue("@student_num", studentnumtxt.Text);
-                cmd2.Parameters.AddWithValue("@emailAdd", emailaddtxt.Text);
-
-                bool studentnumExists = false, emailAddExists = false;
-
-                using (var dr1 = cmd1.ExecuteReader())
-                    if (studentnumExists = dr1.HasRows) MessageBox.Show("Student Number not available!");
-
-                using (var dr2 = cmd2.ExecuteReader())
-                    if (emailAddExists = dr2.HasRows) MessageBox.Show("Email not available!");
-
-
-                if (!(studentnumExists || emailAddExists))
-                {
-
-                    string iquery = "INSERT INTO library.user_register(`ID`,`firstName`,`lastName`,`student_num`,`emailAdd`,`passWord`, 'confirmPass') VALUES (NULL, '" + firstnametxt.Text + "', '" + lastnametxt.Text + "', '" + emailaddtxt.Text + "', '" + studentnumtxt.Text + "', '" + register_password.Text + "', '" + conpassregtxt.Text + "')";
-                    MySqlCommand commandDatabase = new MySqlCommand(iquery, connection);
-                    commandDatabase.CommandTimeout = 60;
-
-                    try
-                    {
-                        MySqlDataReader myReader = commandDatabase.ExecuteReader();
-                    }
-                    catch (Exception ex)
-                    {
-                        // Show any error message.
-                        //123
-                        //james
-                        MessageBox.Show(ex.Message);
-                    }
-
-                    MessageBox.Show("Account Successfully Created!");
-
-                }
-
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
                 connection.Close();
             }
 
-        }
+        
+            }
+
+        
 
         private void passregtxt_TextChanged(object sender, EventArgs e)
         {
