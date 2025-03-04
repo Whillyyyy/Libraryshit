@@ -93,6 +93,7 @@ namespace Library
                     {
                         // Show any error message.
                         //123
+                        //james
                         MessageBox.Show(ex.Message);
                     }
 
