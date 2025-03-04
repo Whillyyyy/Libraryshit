@@ -69,19 +69,19 @@ namespace Library
                 cmd1.Parameters.AddWithValue("@student_num", studentnumtxt.Text);
                 cmd2.Parameters.AddWithValue("@emailAdd", emailaddtxt.Text);
 
-                bool userExists = false, mailExists = false;
+                bool studentnumExists = false, emailAddExists = false;
 
                 using (var dr1 = cmd1.ExecuteReader())
-                    if (userExists = dr1.HasRows) MessageBox.Show("Student Number not available!");
+                    if (studentnumExists = dr1.HasRows) MessageBox.Show("Student Number not available!");
 
                 using (var dr2 = cmd2.ExecuteReader())
-                    if (mailExists = dr2.HasRows) MessageBox.Show("Email not available!");
+                    if (emailAddExists = dr2.HasRows) MessageBox.Show("Email not available!");
 
 
-                if (!(userExists || mailExists))
+                if (!(studentnumExists || emailAddExists))
                 {
 
-                    string iquery = "INSERT INTO user_register.userinfo(`ID`,`firstName`,`lastName`,`student_num`,`emailAdd`,`passWord`, 'confirmPass') VALUES (NULL, '" + firstnametxt.Text + "', '" + lastnametxt.Text + "', '" + emailaddtxt.Text + "', '" + studentnumtxt.Text + "', '" + register_password.Text + "', '" + conpassregtxt.Text + "')";
+                    string iquery = "INSERT INTO library.user_register(`ID`,`firstName`,`lastName`,`student_num`,`emailAdd`,`passWord`, 'confirmPass') VALUES (NULL, '" + firstnametxt.Text + "', '" + lastnametxt.Text + "', '" + emailaddtxt.Text + "', '" + studentnumtxt.Text + "', '" + register_password.Text + "', '" + conpassregtxt.Text + "')";
                     MySqlCommand commandDatabase = new MySqlCommand(iquery, connection);
                     commandDatabase.CommandTimeout = 60;
 
