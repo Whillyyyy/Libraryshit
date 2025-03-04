@@ -89,7 +89,7 @@
             // 
             this.hide_btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.hide_btn2.Image = ((System.Drawing.Image)(resources.GetObject("hide_btn2.Image")));
-            this.hide_btn2.Location = new System.Drawing.Point(473, 296);
+            this.hide_btn2.Location = new System.Drawing.Point(509, 296);
             this.hide_btn2.Name = "hide_btn2";
             this.hide_btn2.Size = new System.Drawing.Size(30, 23);
             this.hide_btn2.TabIndex = 27;
@@ -101,7 +101,7 @@
             // 
             this.show_btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.show_btn2.Image = ((System.Drawing.Image)(resources.GetObject("show_btn2.Image")));
-            this.show_btn2.Location = new System.Drawing.Point(473, 352);
+            this.show_btn2.Location = new System.Drawing.Point(509, 352);
             this.show_btn2.Name = "show_btn2";
             this.show_btn2.Size = new System.Drawing.Size(30, 23);
             this.show_btn2.TabIndex = 26;
