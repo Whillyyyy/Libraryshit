@@ -58,5 +58,13 @@ namespace Library
             adminBookmanagement.Show();
             this.Hide();
         }
+
+        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+            vScrollBar1.Minimum = 0;
+            vScrollBar1.Maximum = Math.Max(0, paneladmindash.Height);
+            vScrollBar1.SmallChange = 20;
+            vScrollBar1.LargeChange = 50;
+        }
     }
 }
